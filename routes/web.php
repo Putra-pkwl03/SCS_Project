@@ -14,7 +14,7 @@ use App\Http\Controllers\PosterController;
 | Website cendanasolution.test. tidak perlu ada perubahn lagi kecuali nanti ada perubahn berita content  dari  be. handle by faisal
 |--------------------------------------------------------------------------
 */
-Route::domain('hcendanasolution.com')->group(function () {
+Route::domain('cendanasolution.com')->group(function () {
     
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
