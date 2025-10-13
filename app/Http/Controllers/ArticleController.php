@@ -55,7 +55,7 @@ class ArticleController extends Controller
 
     public function create()
     {
-        $defaultAuthors = ['admin-pustaka-pemda', 'admincsc', 'admin-pspi'];
+        $defaultAuthors = ['admin-pustaka-pemda', 'admin-csc', 'admin-pspi'];
         $targetWebsites = ['pustaka-pemda', 'csc', 'pspi'];
         return view('admin.create-articles', compact('defaultAuthors', 'targetWebsites'));
     }
@@ -109,7 +109,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::with('images')->findOrFail($id);
-        $defaultAuthors = ['admin-pustaka-pemda', 'admincsc', 'admin-pspi'];
+        $defaultAuthors = ['admin-pustaka-pemda', 'admin-csc', 'admin-pspi'];
         $targetWebsites = ['pustaka-pemda', 'csc', 'pspi'];
 
         return view('admin.edit-article', compact(

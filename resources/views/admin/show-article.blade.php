@@ -34,9 +34,10 @@
             <h1 class="text-[18px] md:text-[22px] font-bold leading-snug">
                 {!! collect($customChunks)->map(fn($chunk) => implode(' ', $chunk))->implode('<br>') !!}
             </h1>
-            <p class="text-[14px] md:text-[16px] text-[#928A8A] mt-2 mb-6">
-                {{ $article->author }} | {{ $article->category }} - {{ $article->created_at->format('d M Y') }}
-            </p>
+          <p class="text-[14px] md:text-[16px] text-[#928A8A] mt-2 mb-6">
+            {{ strtolower(str_replace('-', ' ', $article->author)) }} | {{ $article->category }} {{ $article->created_at->format('d M Y') }}
+        </p>
+
 
 
             {{-- Gambar Utama --}}

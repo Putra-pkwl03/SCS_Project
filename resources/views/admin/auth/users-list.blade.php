@@ -3,7 +3,7 @@
 @section('content')
 @if (session('success'))
 <div x-data="{ show: true }" x-show="show" x-transition.duration.300ms
-    class="fixed z-50 w-full max-w-md px-3 py-2 mt-12 text-green-800 transform -translate-x-1/2 bg-green-100 border border-green-300 rounded top-2 left-1/2"
+    class="fixed z-50 w-full max-w-md px-3 py-2 text-green-800 transform -translate-x-1/2 bg-green-100 border border-green-300 rounded mt-14 top-2 left-1/2"
     role="alert">
     <div class="flex items-start justify-between">
         <div class="text-sm font-medium">
@@ -111,12 +111,12 @@
                 <td class="py-3 pl-6">
                     <div class="flex items-center space-x-2">
                         <a href="{{ route('admin.edit-user', $user->id) }}"
-                            class="text-yellow-500 hover:text-yellow-700" title="Edit">
+                            class="p-1 text-yellow-500 rounded-md hover:text-white hover:bg-yellow-400" title="Edit">
                             <i data-lucide="pencil" class="w-5 h-5"></i>
                         </a>
                         <div x-data="{ showConfirm: false }" class="inline">
                             <button type="button" @click="showConfirm = true" title="Hapus"
-                                class="text-red-600 hover:text-red-800">
+                                class="p-1 text-red-600 rounded-md hover:text-white hover:bg-red-400">
                                 <i data-lucide="trash-2" class="w-5 h-5"></i>
                             </button>
 

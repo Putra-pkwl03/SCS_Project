@@ -8,6 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? 'Dashboard' }}</title>
 
+    
+    {{-- Favicon --}}
+    <link rel="icon" type="image/png" href="{{ asset('img/logindashboard/Logo_CSC_Dashboard.png') }}">
+
+    
     {{-- global css & js --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

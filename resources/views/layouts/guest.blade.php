@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Login Admin' }}</title>
+    
+    {{-- Favicon --}}
+    <link rel="icon" type="image/png" href="{{ asset('img/logindashboard/Logo_CSC_Dashboard.png') }}">
+
     @vite('resources/css/app.css')
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -17,7 +21,7 @@
   <img src="{{ asset('img/logindashboard/stylebg/4.png') }}" class="absolute bottom-0 right-0 max-w-[200px] h-auto z-0" alt="Sudut Kanan Bawah">
 
   {{-- Lapisan biru transparan di atas gambar --}}
-  <div class="absolute inset-0 bg-blue-500/20 z-10"></div>
+  <div class="absolute inset-0 z-10 bg-blue-500/20"></div>
 
 
     {{-- Konten Utama --}}

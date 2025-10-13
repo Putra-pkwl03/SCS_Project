@@ -3,26 +3,26 @@
 </div>
 
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data"
-    class="space-y-2 p-8 -mt-2 bg-white rounded-xl shadow-xl">
+    class="p-8 -mt-2 space-y-2 bg-white shadow-xl rounded-xl">
     @csrf
     @if (isset($method) && $method === 'PUT')
         @method('PUT')
     @endif
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         {{-- Judul --}}
         <div>
             <label class="block text-sm font-semibold text-gray-700 ">Judul Artikel</label>
             <input type="text" name="title" required value="{{ old('title', $article->title ?? '') }}"
-                class="w-full px-2 py-2 rounded-lg border border-blue-300 focus:outline-none focus:ring-1 focus:ring-blue-500  shadow-sm"
+                class="w-full px-2 py-2 border border-blue-300 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
                 placeholder="Masukkan judul artikel">
         </div>
 
         {{-- Target Website --}}
         <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1">Target Website</label>
+            <label class="block mb-1 text-sm font-semibold text-gray-700">Target Website</label>
             <select name="target_website" required
-                class="w-full px-2 py-2 rounded-lg border border-blue-300 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 shadow-sm cursor-pointer">
+                class="w-full px-2 py-2 bg-white border border-blue-300 rounded-lg shadow-sm cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500">
                 @foreach ($targetWebsites as $target)
                     <option value="{{ $target }}" {{ old('target_website', $article->target_website ?? '') === $target ? 'selected' : '' }}>
                         {{ ucwords(str_replace('-', ' ', $target)) }}
@@ -33,12 +33,12 @@
 
         {{-- Gambar Utama --}}
         <div>
-            <label class="block text-sm font-semibold text-gray-700 -mt-1">Gambar Utama</label>
+            <label class="block -mt-1 text-sm font-semibold text-gray-700">Gambar Utama</label>
             <input type="file" name="main_image" accept="image/*"
-                class="w-full px-2 py-2 rounded-lg border border-gray-300 bg-white file:mr-4 file:py-1 file:px-2 file:rounded file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer">
+                class="w-full px-2 py-2 bg-white border border-gray-300 rounded-lg cursor-pointer file:mr-4 file:py-1 file:px-2 file:rounded file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
             @if (!empty($article->main_image))
                 <img src="{{ asset('storage/' . $article->main_image) }}" alt=""
-                    class="w-16 h-18 object-cover rounded-lg shadow-sm border cursor-pointer">
+                    class="object-cover w-16 border rounded-lg shadow-sm cursor-pointer h-18">
             @endif
         </div>
 
@@ -46,7 +46,7 @@
         <div>
             <label class="block text-sm font-semibold text-gray-700">Kategori</label>
             <select name="category" id="category" required
-                class="w-full px-2 py-2 rounded-lg border border-blue-300 focus:outline-none focus:ring-1 focus:ring-blue-500 shadow-sm mb-2 cursor-pointer">
+                class="w-full px-2 py-2 mb-2 border border-blue-300 rounded-lg shadow-sm cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500">
                 <option value="">-- Pilih kategori --</option>
             </select>
         </div>
@@ -54,19 +54,19 @@
 
     {{-- Konten Artikel --}}
     <div>
-        <label class="block text-sm font-semibold text-gray-700 mb-2">Isi Artikel</label>
+        <label class="block mb-2 text-sm font-semibold text-gray-700">Isi Artikel</label>
         <input id="content" type="hidden" name="content" value="{{ old('content', $article->content ?? '') }}">
         <trix-editor input="content"
             class="trix-content bg-gray-100 border-[#ced1d6] rounded-b-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 min-h-[300px] mb-4 -mt-2">
         </trix-editor>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+    <div class="grid grid-cols-1 gap-6 mt-2 md:grid-cols-2">
         {{-- Penulis --}}
         <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1">Penulis</label>
+            <label class="block mb-1 text-sm font-semibold text-gray-700">Penulis</label>
             <select name="author"
-                class="w-full px-2 py-2 rounded-lg border border-blue-300 focus:outline-none focus:ring-1 focus:ring-blue-500 shadow-sm cursor-pointer">
+                class="w-full px-2 py-2 border border-blue-300 rounded-lg shadow-sm cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500">
                 <option value="">Pilih penulis</option>
                 @foreach ($defaultAuthors as $author)
                     <option value="{{ $author }}" {{ old('author') == $author ? 'selected' : '' }}>
@@ -78,14 +78,14 @@
 
         {{-- Gambar Tambahan --}}
         <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1">Gambar Tambahan</label>
+            <label class="block mb-1 text-sm font-semibold text-gray-700">Gambar Tambahan</label>
             <input type="file" name="images[]" accept="image/*" multiple
-                class="w-full px-2 py-2 rounded-lg border border-gray-300 bg-white file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-sm file:bg-green-50 file:text-green-700 hover:file:bg-green-100 cursor-pointer">
+                class="w-full px-2 py-2 bg-white border border-gray-300 rounded-lg cursor-pointer file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-sm file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
         </div>
     </div>
         
 
-    <div class="pt-4 flex justify-between items-center">
+    <div class="flex items-center justify-between pt-4">
         {{-- Tombol Back --}}
         <a href="{{ route('articles.index') }}"
             class="bg-[#FF0000] hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg shadow text-[16px] transition duration-200 cursor-pointer">
@@ -253,5 +253,29 @@ trix-editor blockquote {
     }
 </script>
 
+<script>
+    const targetWebsiteSelect = document.querySelector('select[name="target_website"]');
+    const authorSelect = document.querySelector('select[name="author"]');
+
+    const authorMapping = {
+        'pustaka-pemda': 'admin-pustaka-pemda',
+        'csc': 'admin-csc',
+        'pspi': 'admin-pspi'
+    };
+
+    targetWebsiteSelect.addEventListener('change', function () {
+        const selectedTarget = this.value;
+        if (authorMapping[selectedTarget]) {
+            authorSelect.value = authorMapping[selectedTarget];
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectedTarget = targetWebsiteSelect.value;
+        if (authorMapping[selectedTarget]) {
+            authorSelect.value = authorMapping[selectedTarget];
+        }
+    });
+</script>
 
 

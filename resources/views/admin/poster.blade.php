@@ -7,7 +7,7 @@
     {{-- FLASH MESSAGE --}}
     @if (session('success'))
     <div x-data="{ show: true }" x-show="show" x-transition.duration.300ms
-        class="fixed z-50 w-full max-w-md px-3 py-2 mt-12 text-green-800 transform -translate-x-1/2 bg-green-100 border border-green-300 rounded top-2 left-1/2"
+        class="fixed z-50 w-full max-w-md px-3 py-2 text-green-800 transform -translate-x-1/2 bg-green-100 border border-green-300 rounded mt-14 top-2 left-1/2"
         role="alert">
         <div class="flex items-start justify-between">
             <div class="text-sm font-medium">
@@ -113,7 +113,7 @@
                     <th class="px-4 py-3 text-left">Judul</th>
                     <th class="px-4 py-3 text-left">Poster</th>
                     <th class="px-4 py-3 text-left">Target Website</th>
-                    <th class="py-3 pl-8 text-left">Aksi</th>
+                    <th class="py-3 text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -148,19 +148,19 @@
                             {{ $label }}
                         </a>
                     </td>
-                    <td class="py-3 pl-6">
-                        <div class="flex items-center space-x-2">
+                    <td class="py-3">
+                        <div class="flex items-center justify-center space-x-2">
                             {{-- Tombol Edit --}}
                             <button @click="editPoster = {{ $poster }}; showEditModal = true"
-                                class="text-yellow-600 hover:underline hover:text-yellow-700">
-                                <i data-lucide="pencil" class="w-5 h-5 mr-1"></i>
+                                class="p-1 text-yellow-600 rounded-md hover:underline hover:text-white hover:bg-yellow-400">
+                                <i data-lucide="pencil" class="w-5 h-5"></i>
                             </button>
 
                             {{-- Tombol Hapus --}}
                             <div x-data="{ showConfirm: false }">
                                 <button type="button" @click="showConfirm = true"
-                                    class="text-red-600 hover:underline hover:text-red-700">
-                                    <i data-lucide="trash-2" class="w-5 h-5 mr-1"></i>
+                                    class="p-1 text-red-600 rounded-md hover:underline hover:text-white hover:bg-red-400">
+                                    <i data-lucide="trash-2" class="w-5 h-5"></i>
                                 </button>
 
                                 <!-- Modal Konfirmasi -->
@@ -256,5 +256,15 @@
         }
     });
 </script>
+
+
+<style>
+    .glightbox-container .goverlay {
+        background-color: rgba(0, 0, 0, 0.737) !important;
+    }
+</style>
+
+
+
 
 @endsection

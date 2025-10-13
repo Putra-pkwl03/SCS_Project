@@ -251,11 +251,36 @@
             }
             // First load
             populateCategories(oldTarget);
-            // On change
             targetSelect.addEventListener('change', function () {
                 oldCategory = '';
                 populateCategories(this.value);
             });
         });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const targetWebsiteSelect = document.getElementById('target_website');
+    const authorSelect = document.querySelector('select[name="author"]');
+
+    const authorMapping = {
+        'pustaka-pemda': 'admin-pustaka-pemda',
+        'csc': 'admin-csc',
+        'pspi': 'admin-pspi'
+    };
+
+    const selectedTarget = targetWebsiteSelect.value;
+    if (authorMapping[selectedTarget]) {
+        authorSelect.value = authorMapping[selectedTarget];
+    }
+
+    targetWebsiteSelect.addEventListener('change', function () {
+        const selectedTarget = this.value;
+        if (authorMapping[selectedTarget]) {
+            authorSelect.value = authorMapping[selectedTarget];
+        }
+    });
+});
+</script>
+
 @endpush

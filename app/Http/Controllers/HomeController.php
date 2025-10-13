@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function getBerita_terbaru()
     {
         $hashids = new Hashids('cendana_salt_rahasia', 8);
-        $berita_terbaru = Article::where('author', 'admincsc')
+        $berita_terbaru = Article::where('target_website', 'csc')
                          ->latest()
                          ->paginate(3);
 

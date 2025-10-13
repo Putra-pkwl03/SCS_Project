@@ -70,7 +70,7 @@
    {{-- FLASH MESSAGE --}}
     @if (session('success'))
         <div x-data="{ show: true }" x-show="show" x-transition.duration.300ms
-            class="fixed z-50 w-full max-w-md px-3 py-2 mt-12 text-green-600 transform -translate-x-1/2 bg-green-100 border border-green-300 rounded top-2 left-1/2"
+            class="fixed z-50 w-full max-w-md px-3 py-2 text-green-600 transform -translate-x-1/2 bg-green-100 border border-green-300 rounded mt-14 top-2 left-1/2"
             role="alert">
             <div class="flex items-start justify-between">
                 <div class="text-sm font-medium">
@@ -152,18 +152,18 @@
                             <td class="px-3 py-4">
                                 <div class="flex items-center space-x-2">
                                     <a href="{{ route('articles.show', $article->id) }}" title="Lihat"
-                                        class="text-blue-600 transition hover:text-blue-800">
+                                        class="p-1 text-blue-600 transition rounded-md hover:text-white hover:bg-blue-400">
                                         <i data-lucide="eye" class="w-5 h-5"></i>
                                     </a>
                                     <a href="{{ route('articles.edit', $article->id) }}" title="Edit"
-                                        class="text-yellow-500 transition hover:text-yellow-700">
+                                        class="p-1 text-yellow-500 transition rounded-md hover:text-white hover:bg-yellow-400">
                                         <i data-lucide="edit-3" class="w-5 h-5"></i>
                                     </a>
 
                                     {{-- Delete Modal --}}
                                     <div x-data="{ showModal: false }" class="inline-block">
                                         <button type="button" @click="showModal = true" title="Hapus"
-                                            class="text-red-600 transition hover:text-red-800">
+                                            class="p-1 text-red-600 transition rounded-md hover:text-white hover:bg-red-400">
                                             <i data-lucide="trash-2" class="w-5 h-5"></i>
                                         </button>
 
