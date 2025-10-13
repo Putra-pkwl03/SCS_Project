@@ -14,7 +14,7 @@ use App\Http\Controllers\PosterController;
 | Website cendanasolution.test. tidak perlu ada perubahn lagi kecuali nanti ada perubahn berita content  dari  be. handle by faisal
 |--------------------------------------------------------------------------
 */
-Route::domain('cendanasolution.test')->group(function () {
+Route::domain('hcendanasolution.com')->group(function () {
     
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -68,7 +68,7 @@ Route::domain('pustakapemda.test')->group(function () {
 | Website pspi.test handle by faisal
 |--------------------------------------------------------------------------
 */
-Route::domain('pspi.test')->group(function () {
+Route::domain('pusatsertifikasiprofesi.com')->group(function () {
     Route::get('/', [PspiController::class, 'index'])->name('website3.home');
     Route::get('/berita/{id}', [PspiController::class, 'detail_berita'])->name('website3.detail_berita');
     Route::get('/profil', [PspiController::class, 'profil'])->name('website3.profil');
@@ -85,7 +85,7 @@ Route::domain('pspi.test')->group(function () {
 | Dashboard/Admin Panel: dashboard.test handle by putra
 |--------------------------------------------------------------------------
 */
-Route::domain('dashboard.localhost')->group(function () {
+Route::domain('dashboard.cendanasolution.com')->group(function () {
     Route::get('/auth/login', [AuthController::class, 'login'])->name('admin.login');
     Route::post('/auth/login', [AuthController::class, 'doLogin'])->name('admin.login.submit');
     Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');
