@@ -15,7 +15,7 @@ class HomeController extends Controller
         $hashids = new Hashids('cendana_salt_rahasia', 8);
         $berita_terbaru = Article::where('target_website', 'csc')
                          ->latest()
-                         ->paginate(3);
+                         ->paginate(6);
 
         $berita_terbaru->setCollection(
             $berita_terbaru->getCollection()->map(function ($item) use ($hashids) {
@@ -28,9 +28,13 @@ class HomeController extends Controller
         return $berita_terbaru;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $berita_terbaru = $this->getBerita_terbaru();
+    
+        if ($request->ajax()) {
+            return view('components.berita_list', compact('berita_terbaru'))->render();
+        }
 
         return view('index', [
             'css' => 'home.css',
@@ -119,9 +123,14 @@ class HomeController extends Controller
             'navbar' => 'default'
         ]);
     }
-
-    public function berita() {
+    public function berita(Request $request)
+    {
         $berita_terbaru = $this->getBerita_terbaru();
+    
+        if ($request->ajax()) {
+            return view('components.berita_list', compact('berita_terbaru'))->render();
+        }
+    
         return view('klien-sejarah.berita', [
             'css' => 'css/klien-sejarah/berita.css',
             'navbar' => 'default',
@@ -145,7 +154,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function detail_berita($id_slug) {
+    public function detail_berita($id_slug, Request $request) {
         $hashids = new Hashids('cendana_salt_rahasia', 8);
         $parts = explode('-', $id_slug);
         $id_encrypt = $parts[0];
@@ -156,6 +165,10 @@ class HomeController extends Controller
         $gambars = ArticleImage::where('article_id', $id)->get();
 
         $berita_terbaru = $this->getBerita_terbaru();
+    
+        if ($request->ajax()) {
+            return view('components.berita_list', compact('berita_terbaru'))->render();
+        }
 
         return view('components.detail_berita', [
             'css' => 'css/detail_berita.css',

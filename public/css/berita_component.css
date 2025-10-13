@@ -11,7 +11,7 @@
 .news .line-bar-title {
     width: 50px;
     height: 5px;
-    background-color: #F7BC12;
+    background-color: #f7bc12;
     transition: width 0.3s;
 }
 
@@ -21,29 +21,28 @@
 
 .news .card {
     background-color: #f5f5f5;
-    max-width: 600px;
+    /* max-width: 350px; */
 }
 
 .news .line-bar {
     width: 25px;
     height: 5px;
-    background-color: #3499C5;
+    background-color: #3499c5;
     transition: width 0.3s;
 }
 
 .news .card .next {
-    color: #848484;
+    color: #20a3db;
     transition: ease-in-out 0.1s;
     font-weight: 500;
 }
-
 
 .news .card:hover .line-bar {
     width: 50px;
 }
 
 .news .card:hover .next {
-    color: #3499C5;
+    color: #297a9d;
     transition: ease-in-out 0.1s;
 }
 
