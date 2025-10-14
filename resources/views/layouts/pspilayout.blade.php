@@ -16,7 +16,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-white min-h-screen flex flex-col">
+<body class="flex flex-col min-h-screen bg-white">
 
     {{-- Navbar khusus PSPI --}}
     @include('pspi-components.navbar')
